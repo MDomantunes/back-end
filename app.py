@@ -110,3 +110,6 @@ def buscar_aluno(cpf):
         return jsonify(doc.to_dict()), 200
     else:
         return jsonify({'mensagem': 'Aluno não encontrado'}), 404
+
+if __name__ == '__main__':
+    app.run()
