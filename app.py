@@ -44,7 +44,7 @@ def cadastrar_aluno():
     dados = request.json  # Recebe os dados do corpo da requisição
 
     # Verifica se os dados obrigatórios foram enviados
-    if 'cpf' not in dados or 'nome' not in dados or 'status' not in dados:
+    if 'cpf' not in dados or 'nome' not in dados:
         return jsonify({'mensagem': 'Dados incompletos'}), 400
 
     # Cria um novo documento com o CPF como identificador
@@ -52,10 +52,11 @@ def cadastrar_aluno():
     doc_ref.set({
         'cpf': dados['cpf'],
         'nome': dados['nome'],
-        'status': dados['status']
+        'status': True
     })
 
     return jsonify({'mensagem': 'Aluno cadastrado com sucesso'}), 201
+
 
 # Rota para editar os dados de um aluno já existente
 @app.route('/alunos/<cpf>', methods=['PUT'])
