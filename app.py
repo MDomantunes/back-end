@@ -52,7 +52,7 @@ def cadastrar_aluno():
     doc_ref.set({
         'cpf': dados['cpf'],
         'nome': dados['nome'],
-        'status': True
+        'status': dados['status']
     })
 
     return jsonify({'mensagem': 'Aluno cadastrado com sucesso'}), 201
